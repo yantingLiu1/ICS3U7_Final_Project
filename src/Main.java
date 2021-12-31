@@ -1,4 +1,5 @@
 import java.io.*;
+import java.util.*;
 
 /**
  * This isn't really the main, it's just a template for the main. I'll add to it later where I'll get general History and current histories in it
@@ -57,16 +58,40 @@ public class Main {
 		
 		PatientInfo.changePatientInfo(patientInfoArray);
 		
-		System.out.println(PatientInfo.getPatientInfo()[0][0]);
+		System.out.println(myArray.getPatientInfo()[0][0]);
 
 		myName.changeFirstName("Mika");
 
 		refreshArray();
 		
-		System.out.println(PatientInfo.getPatientInfo()[0][0]);
-		System.out.println(PatientInfo.getPatientInfo()[2][2]);		
+		System.out.println(myArray.getPatientInfo()[0][0]);
+		System.out.println(myArray.getPatientInfo()[2][2]);		
+		
+		/*
+		 * For General History
+		 * 
+		 * When making the string names for the files, we'll manipulate the string so that it starts with file number whatever, then it'll add a 
+		 * value to it. Then we'll get different txt files for every patient. I just made them directly but it'll be in a while loop
+		 */
+		
+		String disease1Ex = "Rheumatism";
+		String disease2Ex = "Astigmatism";
+		
+		String economicSituationEx = "good";
+		String jobEx = "mangaka";
+		
+		String patientHistoryEx = "No.";
+		String allergiesEx = "peanuts";
+		String familyHistoryEx = "No.";
+		
+		ArrayList<String> diseaseArray = new ArrayList<String>();
+		ArrayList<String> economicArray = new ArrayList<String>();
+		ArrayList<String> historyArray = new ArrayList<String>();
+		
+		
 		
 	}
+		
 	
 	/**
 	 * It refreshes the array for Patient info to match the class.

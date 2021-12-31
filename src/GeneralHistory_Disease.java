@@ -1,18 +1,24 @@
+import java.util.*;
 
 public class GeneralHistory_Disease {
 	
-	public static String disease;
+	public static ArrayList<String> disease;
 	
-	public GeneralHistory_Disease(String fDisease) {
-		disease = fDisease;
+	public GeneralHistory_Disease(ArrayList<String> fDisease) {
+		for(int i = 0; i < fDisease.size(); i++) {
+			disease.add(fDisease.get(i));
+		}
 	}
 	
-	public static String changeDisease(String cDisease) {
-		disease = cDisease;
+	public static ArrayList<String> changeDisease(ArrayList<String> cDisease) {
+		disease.clear();
+		for(int i = 0; i < cDisease.size(); i++) {
+			disease.add(cDisease.get(i));
+		}
 		return disease;
 	}
 	
-	public static String getDisease() {
+	public static ArrayList<String> getDisease() {
 		return disease;
 	}
 	

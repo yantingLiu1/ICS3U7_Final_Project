@@ -31,7 +31,7 @@ public class PatientInfo {
 		return patientInfoArray;
 	}
 	
-	public static String[][] getPatientInfo(){
+	public String[][] getPatientInfo(){
 		return patientInfoArray;
 	}
 		
