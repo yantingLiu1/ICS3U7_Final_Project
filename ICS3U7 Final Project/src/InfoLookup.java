@@ -21,6 +21,7 @@ public class InfoLookup {
 class infoFrame extends JFrame implements ActionListener {
     JButton view = new JButton("View");
     JButton addEntry = new JButton("Add entry");
+    JButton delete = new JButton("Delete");
     JList<String> jlist;
     JScrollPane pane;
     infoFrame(){
@@ -57,9 +58,12 @@ class infoFrame extends JFrame implements ActionListener {
         addEntry.addActionListener(this);
         view.setBounds(50,600,100,30);
         view.addActionListener(this);
+        delete.setBounds(500,600,100,30);
+        delete.addActionListener(this);
 
         add(view);
         add(addEntry);
+        add(delete);
         add(pane);
     }
 
@@ -81,6 +85,11 @@ class infoFrame extends JFrame implements ActionListener {
             rframe.setResizable(false);
             rframe.setTitle("Registration");
             rframe.setVisible(true);
+        }
+        else if(e.getSource() == delete){
+            int input = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete?");
+            // 0=yes, 1=no, 2=cancel
+
         }
     }
 }
