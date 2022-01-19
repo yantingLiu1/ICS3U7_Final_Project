@@ -1,7 +1,10 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+/*
+* @Author Roshan: Gui
+* 		  Ada: actionlistener
+* */
 //fixed
 
 //define program
@@ -68,16 +71,12 @@ public class LoginFrame extends JFrame implements ActionListener {
 				
 				this.setVisible(false);
 
-				RegFrame rFrame = new RegFrame();
-			    rFrame.setSize(900, 650);
-			    rFrame.setTitle("Registration");
+				infoFrame rFrame = new infoFrame();
+			    rFrame.setSize(800, 700);
+			    rFrame.setTitle("infoLookup");
 			    rFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+				rFrame.setResizable(false);
 			    rFrame.setVisible(true);
-			    rFrame.getValues();
-			    
-			    for(int i = 0; i < 9; i++) {
-			    	patientInfoValue[i] = rFrame.getValues()[i];
-			    }
 
 			}
 			else{

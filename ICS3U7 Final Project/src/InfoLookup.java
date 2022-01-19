@@ -19,7 +19,8 @@ public class InfoLookup {
     }
 }
 class infoFrame extends JFrame implements ActionListener {
-    JButton select = new JButton("Select");
+    JButton view = new JButton("View");
+    JButton addEntry = new JButton("Add entry");
     JList<String> jlist;
     JScrollPane pane;
     infoFrame(){
@@ -52,17 +53,19 @@ class infoFrame extends JFrame implements ActionListener {
         pane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
         pane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
+        addEntry.setBounds(200,600,100,30);
+        addEntry.addActionListener(this);
+        view.setBounds(50,600,100,30);
+        view.addActionListener(this);
 
-        select.setBounds(50,600,100,30);
-        select.addActionListener(this);
-
-        add(select);
+        add(view);
+        add(addEntry);
         add(pane);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == select){
+        if(e.getSource() == view){
             String s = jlist.getSelectedValue();
             if(jlist.getSelectedValue()==null){
                 JOptionPane.showMessageDialog(this,"no");
@@ -70,6 +73,14 @@ class infoFrame extends JFrame implements ActionListener {
             else {
                 JOptionPane.showMessageDialog(this, s);
             }
+        }
+        else if(e.getSource() == addEntry){
+            RegFrame rframe = new RegFrame();
+            rframe.setSize(900,650);
+            rframe.setDefaultCloseOperation(EXIT_ON_CLOSE);
+            rframe.setResizable(false);
+            rframe.setTitle("Registration");
+            rframe.setVisible(true);
         }
     }
 }
