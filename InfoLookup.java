@@ -46,25 +46,30 @@ class infoFrame extends JFrame implements ActionListener {
             System.out.println("Issues reading file");
         }
         setLayout(null);
-        JList<String> jlist = new JList<>(list);
-        //JScrollPane pane = new JScrollPane(jlist);
-        jlist.setBounds(50,50,700,500);
-        //pane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
-        //pane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        jlist = new JList<>(list);
+        JScrollPane pane = new JScrollPane(jlist);
+        pane.setBounds(50,50,700,500);
+        pane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+        pane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
 
-        select.setBounds(50,600,30,100);
+        select.setBounds(50,600,100,30);
         select.addActionListener(this);
 
         add(select);
-        add(jlist);
+        add(pane);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == select){
             String s = jlist.getSelectedValue();
-            JOptionPane.showConfirmDialog(this,s,"Display",JOptionPane.PLAIN_MESSAGE );
+            if(jlist.getSelectedValue()==null){
+                JOptionPane.showMessageDialog(this,"no");
+            }
+            else {
+                JOptionPane.showMessageDialog(this, s);
+            }
         }
     }
 }
