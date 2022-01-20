@@ -71,7 +71,7 @@ public class LoginFrame extends JFrame implements ActionListener {
 				
 				this.setVisible(false);
 
-				infoFrame rFrame = new infoFrame();
+				InfoFrame rFrame = new InfoFrame();
 			    rFrame.setSize(800, 700);
 			    rFrame.setTitle("infoLookup");
 			    rFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
