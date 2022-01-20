@@ -1,0 +1,1 @@
+These files are for testing how things will work and if they work before changing the variables and adding them to the other classes
