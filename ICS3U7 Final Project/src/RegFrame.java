@@ -23,7 +23,7 @@ public class RegFrame extends JFrame implements ActionListener {
     * 8: notes
     * */
 
-	public static String path = "C:\\temp\\ics3u7";
+	public static String path = "storedInformation\\";
     public static String[] patientInfoArray = new String[9];
     JButton clear = new JButton("Clear");
     JButton register = new JButton("Register");
@@ -138,7 +138,7 @@ public class RegFrame extends JFrame implements ActionListener {
 		PatientInfoHealthNum healthNumTemp = new PatientInfoHealthNum(array[7]);
 		PatientInfoNotes noteTemp = new PatientInfoNotes(array[8]);	
 		
-		String pathForFile = "C:\\temp\\ics3u7";
+		String pathForFile = "storedInformation\\";
 		String folderName = healthNumTemp.getHealthNumber();
 		boolean fileMade;
 	    if(folderName != null ) {
@@ -164,12 +164,12 @@ public class RegFrame extends JFrame implements ActionListener {
 
 		try{
 
-			String space = " ";
-			String fileNameName = pathForFile + folderName + "\\Name.txt";
-			String fileNameContact = pathForFile + folderName + "\\Contact.txt";
+			String space = "\n";
+			String fileNameName = pathForFile + folderName + "\\name.txt";
+			String fileNameContact = pathForFile + folderName + "\\contact.txt";
 			String fileNameAddress = pathForFile + folderName + "\\address.txt";
-			String fileNameCity = pathForFile + folderName + "\\addressCity.txt";
-			String fileNameProvince = pathForFile + folderName + "\\addressProvince.txt";
+			String fileNameCity = pathForFile + folderName + "\\city.txt";
+			String fileNameProvince = pathForFile + folderName + "\\province.txt";
 			String fileNamePostalCode = pathForFile + folderName + "\\postalCode.txt";
 			String fileNameHealthNum = pathForFile + folderName + "\\healthNumber.txt";
 			String fileNameNotes = pathForFile + folderName + "\\note.txt";
@@ -250,5 +250,3 @@ class CustomLabel extends JLabel{
         setBounds(x, y, w, h);
     }
 }
-
-
