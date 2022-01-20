@@ -23,7 +23,7 @@ public class RegFrame extends JFrame implements ActionListener {
     * 8: notes
     * */
 
-	public static String path = "storedInformation\\";
+    public static String path = "storedInformation\\";
     public static String[] patientInfoArray = new String[9];
     JButton clear = new JButton("Clear");
     JButton register = new JButton("Register");
