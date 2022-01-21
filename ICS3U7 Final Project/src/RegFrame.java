@@ -249,9 +249,3 @@ public class RegFrame extends JFrame implements ActionListener {
     }
     
 }
-class CustomLabel extends JLabel{
-    CustomLabel(String name,int x, int y, int w, int h){
-        super(name);
-        setBounds(x, y, w, h);
-    }
-}
