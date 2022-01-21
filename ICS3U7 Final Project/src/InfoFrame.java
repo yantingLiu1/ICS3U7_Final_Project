@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 
 class InfoFrame extends JFrame implements ActionListener {
-	String path = "storedInformation\\AllHealthNumbers.txt";
+	String path = "\\storedInformation\\AllHealthNumbers.txt";
 	final int CAPACITY = 0;
 	JButton select = new JButton("Select");
 	JList<String> jlist;
