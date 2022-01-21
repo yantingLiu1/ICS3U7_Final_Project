@@ -173,6 +173,7 @@ public class RegFrame extends JFrame implements ActionListener {
 			String fileNamePostalCode = pathForFile + folderName + "\\postalCode.txt";
 			String fileNameHealthNum = pathForFile + folderName + "\\healthNumber.txt";
 			String fileNameNotes = pathForFile + folderName + "\\note.txt";
+			String fileAllHealthNumber = pathForFile + "\\AllHealthNumbers.txt";
 
 			Writer patientInfoWriterName = new FileWriter(fileNameName);
 			Writer patientInfoWriterContact = new FileWriter(fileNameContact);
@@ -182,6 +183,7 @@ public class RegFrame extends JFrame implements ActionListener {
 			Writer patientInfoWriterPostalCode = new FileWriter(fileNamePostalCode);
 			Writer patientInfoWriterHealthNum = new FileWriter(fileNameHealthNum);
 			Writer patientInfoWriterNotes = new FileWriter(fileNameNotes);
+			Writer patientInfoWriterAllHealthNumber = new FileWriter(fileAllHealthNumber);
 
 			patientInfoWriterName.write(nameTemp.getFirstName());
 			patientInfoWriterName.write(space);
@@ -201,6 +203,8 @@ public class RegFrame extends JFrame implements ActionListener {
 			
 			patientInfoWriterNotes.write(noteTemp.getNotes());
 			
+			patientInfoWriterAllHealthNumber.write(healthNumTemp.getHealthNumber());
+			
 			patientInfoWriterName.close();
 			patientInfoWriterContact.close();
 			patientInfoWriterAddress.close();
@@ -209,6 +213,7 @@ public class RegFrame extends JFrame implements ActionListener {
 			patientInfoWriterPostalCode.close();
 			patientInfoWriterHealthNum.close();
 			patientInfoWriterNotes.close();
+			patientInfoWriterAllHealthNumber.close();
 
 		}
 		catch(IOException ex) {
