@@ -9,12 +9,13 @@ import java.util.ArrayList;
 
 
 class InfoFrame extends JFrame implements ActionListener {
-	String path = "C:\\Temp\\AllHealthNumbers.txt";
+	String path = "storedInformation\\AllHealthNumbers.txt";
+	final int CAPACITY = 0;
 	JButton select = new JButton("Select");
 	JList<String> jlist;
 	JScrollPane pane;
 	InfoFrame(){
-		String list[] = new String[0];
+		String list[] = new String[CAPACITY];
 		try{
 			BufferedReader healthNumReader = new BufferedReader(new FileReader(path)); 
 			String line;
@@ -24,7 +25,7 @@ class InfoFrame extends JFrame implements ActionListener {
 				al.add(line);
 			}
 
-			list = al.toArray(new String[0]);
+			list = al.toArray(new String[CAPACITY]);
 
 			for(String element : list){
 				System.out.println(element);
