@@ -63,11 +63,12 @@ public class LoginChange extends JFrame implements ActionListener {
             dispatchEvent(new WindowEvent(this, WINDOW_CLOSING));
         }
         if (e.getSource() == confirm) {
-            if (username.getText().equals("") || pwd.equals("") || pwdc.equals("")) {
+            if (username.getText().equals("") == false || pwd.equals("") == false || pwdc.equals("") == false) {
                 if (pwd.equals(pwdc)) {
                     String p = pwdc;
                     String u = username.getText();
                     new changePassword(u, p);
+                    dispose();
                 } else {
                     JOptionPane.showMessageDialog(this, "Passwords do not match");
                 }
