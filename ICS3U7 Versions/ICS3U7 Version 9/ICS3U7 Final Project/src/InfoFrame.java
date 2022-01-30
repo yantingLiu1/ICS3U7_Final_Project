@@ -2,27 +2,34 @@ import javax.swing.*;
 import java.awt.event.*;
 import java.io.*;
 import java.util.ArrayList;
-/*
- * @author Roshan
- * */
 
+/**
+ * Creates the GUI for the user to choose certain actions from 
+ * @author Roshan
+ *
+ */
 
 class InfoFrame extends JFrame implements ActionListener {
+	
+	//declare variables
     String path = "storedInformation\\AllHealthNumbers.txt";
     JButton view = new JButton("View");
     JButton addEntry = new JButton("Add entry");
     JButton delete = new JButton("Delete");
     JButton edit = new JButton("Edit");
-    JButton changeup = new JButton("Alter PIN");
     JList<String> jlist;
     JScrollPane pane;
     String[] list = new String[0];
     DefaultListModel model = new DefaultListModel();
     String pathForFile = "storedInformation\\";
 
+    /**
+     * Creates an info GUI
+     */
     InfoFrame() {
         readList();
-
+        
+        //finds out the health numbers and lists them
         setLayout(null);
         for (String item : list) {
             model.addElement(item);
@@ -32,7 +39,8 @@ class InfoFrame extends JFrame implements ActionListener {
         pane.setBounds(50, 50, 700, 500);
         pane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
         pane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-
+        
+        //set bounds and action listeners to different buttons        
         addEntry.setBounds(200, 600, 100, 30);
         addEntry.addActionListener(this);
         view.setBounds(50, 600, 100, 30);
@@ -41,26 +49,28 @@ class InfoFrame extends JFrame implements ActionListener {
         delete.addActionListener(this);
         edit.setBounds(350,600,100,30);
         edit.addActionListener(this);
-        changeup.setBounds(650, 600, 100, 30);
-        changeup.addActionListener(this);
 
         add(view);
         add(addEntry);
         add(delete);
         add(edit);
-        add(changeup);
         add(pane);
     }
 
     @Override
+    /**
+     * Checks for the action performed
+     */
     public void actionPerformed(ActionEvent e) {
         String s = jlist.getSelectedValue();
+        
+        //if selected view, views the health number chosen by creating a view frame
         if (e.getSource() == view) {
             if (jlist.getSelectedValue() == null) {
                 JOptionPane.showMessageDialog(this, "no selection made");
             } else {
 
-                viewf vFrame = new viewf(s);
+                ViewFrame vFrame = new ViewFrame(s);
                 vFrame.setSize(900, 650);
                 vFrame.setResizable(false);
                 vFrame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
@@ -68,6 +78,7 @@ class InfoFrame extends JFrame implements ActionListener {
                 vFrame.setVisible(true);
             }
         }
+        //if selected edit, edits the health number folder chosen by creating an edit frame
         else if (e.getSource() == edit) {
             if (jlist.getSelectedValue() == null) {
                 JOptionPane.showMessageDialog(this, "no selection made");
@@ -81,6 +92,8 @@ class InfoFrame extends JFrame implements ActionListener {
                 eFrame.setVisible(true);
             }
         }
+        //if selected addEntry, adds a health number and health number folder to the file system by creating 
+        //register frame
         else if (e.getSource() == addEntry) {
             RegFrame rframe = new RegFrame();
             rframe.setSize(900, 650);
@@ -100,6 +113,8 @@ class InfoFrame extends JFrame implements ActionListener {
                     }
                 }
             });
+            
+        //if selected delete, deletes the health number and the health number file from the file system
         } else if (e.getSource() == delete) {
             if (jlist.getSelectedValue() == null) {
                 JOptionPane.showMessageDialog(this, "no selection made");
@@ -109,9 +124,6 @@ class InfoFrame extends JFrame implements ActionListener {
                 if (input == 0) {
                     String deleteDir = pathForFile + s;
                     purgeDirectory(new File(deleteDir), s);
-                    /*
-                     * So I added it here, but it's not working.
-                     */
                     readList();
                     model.clear();
                     for (String item : list) {
@@ -120,10 +132,6 @@ class InfoFrame extends JFrame implements ActionListener {
 
                 }
             }
-        }
-        
-        else if(e.getSource() == changeup) {
-        	
         }
     }
 
@@ -141,9 +149,6 @@ class InfoFrame extends JFrame implements ActionListener {
 
             list = al.toArray(new String[0]);
 
-//			for (String element : list) {
-//				System.out.println(element);
-//			}
             healthNumReader.close();
 
 
@@ -184,7 +189,6 @@ class InfoFrame extends JFrame implements ActionListener {
             while ((line = healthNumReader.readLine()) != null) {
                 listOfHealthNumbers.add(line);
 
-                //line = healthNumReader.readLine();
             }
 
             for (int i = 0; i < listOfHealthNumbers.size(); i++) {
