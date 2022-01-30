@@ -9,11 +9,10 @@ import java.io.*;
 public class SetPassword {
 
     //declare variables
-    String path = "storedInformation\\";
     String passwordFileName = "passwordName.txt";
     String usernameFileName = "usernameName.txt";
-    String password = "1234";
-    String username = "1234";
+    String password;
+    String username;
     String[] passwordUsername = new String[2];
 
     /**
@@ -49,11 +48,10 @@ public class SetPassword {
  * @param cPassword
  */
 class changePassword {
-    String path = "storedInformation\\";
     String passwordFileName = "passwordName.txt";
     String usernameFileName = "usernameName.txt";
-    String password = "1234";
-    String username = "1234";
+    String password;
+    String username;
     String[] passwordUsername = new String[2];
 
     public changePassword(String cUsername, String cPassword) {
