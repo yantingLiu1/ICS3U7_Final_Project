@@ -68,7 +68,6 @@ public class LoginFrame extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        String path = "storedInformation\\";
         String passwordFileName = "passwordName.txt";
         String usernameFileName = "usernameName.txt";
         String[] passwordUsername = new String[2];
